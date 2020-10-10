@@ -14,21 +14,28 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 var passwordLength = 8
-// User defined password requirements
+// User defined password requirements with loop for correct character length requirement
 function generatePassword() {
   var passwordLength = prompt("Enter desired character lenght between 8 - 128 character.")
-  if (passwordLength < 8 || passwordLength > 128) {
-  alert("Minimum value 8 and maximum value 128.");
+  console.log(passwordLength)
+if(passwordLength < 8 || passwordLength > 128) {
+  alert("Minimum value 8 and maximum value 128.")
+var passwordLength = prompt("Enter desired character lenght between 8 - 128 character.")
 }
+
+
   var lowerLetter = confirm ("Include lower case letters?");
+  console.log(lowerLetter)
   var capLetter = confirm("Include Capital letters?")
+  console.log(capLetter);
   var num = confirm("Include numeric characters?")
+  console.log(num);
   var specChar = confirm("Include special characters?")
+  console.log(specChar);
+
 };
-// Password requirement validation
-// if (passwordLength < 8 || passwordLength > 128) {
-//   alert("Minimum value 8 and maximum value 128.");
-// }
+
+
 
 // lowercase characters boolean
 // var lowerLetter = confirm ("Include lower case letters?");
