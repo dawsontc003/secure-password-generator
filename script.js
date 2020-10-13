@@ -5,9 +5,9 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+// Output for final password with comma seperation removed
+  passwordText.value = finalPassword.join('');
 
-  passwordText.value = passarray;
-console.log(passarray)
 }
 
 // Add event listener to generate button
@@ -19,11 +19,11 @@ var caps = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"
 var low = ["a","b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 var spec = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+"]
- // Declaring array variable for generated password to pass to password text value
+ // Declaring array variable for generated password to pass to
 var passarray = []
+var finalPassword = [];
 
-
-//Initiate genereate password criteria for user selection
+//Initiate genereate password user experience
 function generatePassword() {
   
   // Initial prompt for user to select password length
@@ -52,32 +52,34 @@ return generatePassword()
   };
 
   for (i = 0; i < passwordLength; i++) {
-  // Generate lower letter character for password and pass to array
+  // Generate lower letter character for password
   if (lowerLetter) {
      var passChar = low [Math.floor (Math.random() * low.length)]
      passarray.push(passChar);
   // passarray.push(generateLowCase)
   }
   
-   // Generate capital letter character for password and pass to array
+   // Generate capital letter character for password
   if (capLetter) {
-     var passChar = caps [Math.floor (Math.random() * caps.length)];
-     passarray.push(passChar);
+     var passChar2 = caps [Math.floor (Math.random() * caps.length)];
+     passarray.push(passChar2);
     }
-   
-    // Generate numeric character for password and pass to array
+   // Generate numeric character for password
   if (num) {
-    var passChar = number [Math.floor (Math.random() * number.length)]
-    passarray.push(passChar);
+    var passChar3 = number [Math.floor (Math.random() * number.length)]
+    passarray.push(passChar3);
     }
-    
-    // Generate special character for password and pass to array
+    // Generate special character for password
   if (specChar) {
-    var passChar = spec [Math.floor (Math.random() * spec.length)]
-    passarray.push(passChar);
+    var passChar4 = spec [Math.floor (Math.random() * spec.length)]
+    passarray.push(passChar4);
   }
   }
-    
+  // Final password push.  This item randomly pulls the correct number of characters to gather the final random password.
+    for (i =0; i < passwordLength; i++) {
+     finalPassword.push(passarray[Math.floor (Math.random() * passwordLength)]);
+}
 
 
 }
+
