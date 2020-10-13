@@ -51,7 +51,7 @@ return generatePassword()
     return generatePassword()
   };
 
-  
+  for (i = 0; i < passwordLength; i++) {
   // Generate lower letter character for password and pass to array
   if (lowerLetter) {
      var passChar = low [Math.floor (Math.random() * low.length)]
@@ -61,20 +61,22 @@ return generatePassword()
   
    // Generate capital letter character for password and pass to array
   if (capLetter) {
-     var passChar2 = caps [Math.floor (Math.random() * caps.length)];
-     passarray.push(passChar2);
+     var passChar = caps [Math.floor (Math.random() * caps.length)];
+     passarray.push(passChar);
     }
-   // Generate numeric character for password and pass to array
+   
+    // Generate numeric character for password and pass to array
   if (num) {
-    var passChar3 = number [Math.floor (Math.random() * number.length)]
-    passarray.push(passChar3);
+    var passChar = number [Math.floor (Math.random() * number.length)]
+    passarray.push(passChar);
     }
+    
     // Generate special character for password and pass to array
   if (specChar) {
-    var passChar4 = spec [Math.floor (Math.random() * spec.length)]
-    passarray.push(passChar4);
+    var passChar = spec [Math.floor (Math.random() * spec.length)]
+    passarray.push(passChar);
   }
-  
+  }
     
 
 
